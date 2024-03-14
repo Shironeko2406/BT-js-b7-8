@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Số Chẵn Cuối Cùng Trong Mảng</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tìm Số Chẵn Cuối Cùng Trong Mảng</h1>
+        <p>Nhập các số, phân cách bằng dấu phẩy:</p>
+        <input type="text" id="numbersInput">
+        <button onclick="timSoChanCuoiCung()">Tìm</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function timSoChanCuoiCung() {
+            var chuoiSo = document.getElementById('numbersInput').value;
+            var mangSo = chuoiSo.split(',').map(Number);
+            var soChanCuoiCung = -1;
+
+            for (var i = 0; i < mangSo.length; i++) {
+                if (mangSo[i] % 2 === 0) {
+                    soChanCuoiCung = mangSo[i];
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'Số chẵn cuối cùng trong mảng là: ' + soChanCuoiCung;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So sánh số dương và số âm trong mảng</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>So sánh số dương và số âm trong mảng</h1>
+        <p>Nhập các số, phân cách bằng dấu phẩy:</p>
+        <input type="text" id="numbersInput">
+        <button onclick="soSanh()">So sánh</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function soSanh() {
+            var chuoiSo = document.getElementById('numbersInput').value;
+            var mangSo = chuoiSo.split(',').map(Number);
+            var demDuong = 0;
+            var demAm = 0;
+
+            for (var i = 0; i < mangSo.length; i++) {
+                if (mangSo[i] > 0) {
+                    demDuong++;
+                } else if (mangSo[i] < 0) {
+                    demAm++;
+                }
+            }
+
+            if (demDuong > demAm) {
+                document.getElementById('result').innerHTML = 'Số lượng số dương nhiều hơn số lượng số âm.';
+            } else if (demDuong < demAm) {
+                document.getElementById('result').innerHTML = 'Số lượng số âm nhiều hơn số lượng số dương.';
+            } else {
+                document.getElementById('result').innerHTML = 'Số lượng số dương và số lượng số âm bằng nhau, mỗi loại là: ' + demDuong;
+            }
+        }
+    </script>
+</body>
+
+</html>

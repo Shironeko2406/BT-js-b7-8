@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng Các Số Dương</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tính Tổng Các Số Dương</h1>
+        <p>Nhập các số, phân cách bằng dấu phẩy:</p>
+        <input type="text" id="numbersInput">
+        <button onclick="tinhTong()">Tính</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function tinhTong() {
+            var chuoiSo = document.getElementById('numbersInput').value;
+            var mangSo = chuoiSo.split(',').map(Number);
+            var tong = 0;
+
+            for (var i = 0; i < mangSo.length; i++) {
+                if (mangSo[i] > 0) {
+                    tong += mangSo[i];
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'Tổng các số dương: ' + tong;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi Chỗ 2 Giá Trị Trong Mảng</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Đổi Chỗ 2 Giá Trị Trong Mảng</h1>
+        <p>Nhập vào hai vị trí muốn đổi chỗ giá trị:</p>
+        <input type="number" id="position1" placeholder="Vị trí 1">
+        <input type="number" id="position2" placeholder="Vị trí 2">
+        <button onclick="doiCho()">Đổi Chỗ</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function doiCho() {
+            var pos1 = parseInt(document.getElementById('position1').value) - 1;
+            var pos2 = parseInt(document.getElementById('position2').value) - 1;
+
+            var mang = [1, 2, 3, 4, 5]; // Mảng ví dụ
+
+            if (isNaN(pos1) || isNaN(pos2) || pos1 < 0 || pos2 < 0 || pos1 >= mang.length || pos2 >= mang.length) {
+                document.getElementById('result').innerHTML = 'Vị trí không hợp lệ.';
+                return;
+            }
+
+            var temp = mang[pos1];
+            mang[pos1] = mang[pos2];
+            mang[pos2] = temp;
+
+            document.getElementById('result').innerHTML = 'Mảng sau khi đổi chỗ: ' + mang.join(', ');
+        }
+    </script>
+</body>
+
+</html>
